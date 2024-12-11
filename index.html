@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green HR FAQ Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #0A2240;
+        }
+
+        .main-content {
+            background-color: #042c6a;
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 4em;  /* Add margin to the top */
+        }
+
+        .ui.segment {
+            background-color: rgba(10, 34, 64, 0.9);
+            border-color: #4ECDC4;
+        }
+        .ui.card {
+            background-color: rgba(10, 34, 64, 0.9);
+            border: 2px solid #4ECDC4;  /* Cyan border */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .ui.card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(78, 205, 196, 0.3);
+            border-color: #45B7E5;  /* Change border color on hover */
+        }
+        .ui.card .content {
+            border-top: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        .ui.card .header {
+            color: #4ECDC4;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .ui.card .description {
+            color: #FFFFFF;
+            font-size: 0.9em;
+        }
+        .ui.card .content i.icon {
+            color: #4ECDC4;
+            margin-bottom: 0.5em;
+        }
+        .ui.input input {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #4ECDC4;
+            color: #0A2240;
+        }
+        .ui.input input::placeholder {
+            color: #2A4B8C;
+        }
+    
+        .ui.header {
+            color: #FFFFFF;  /* White color for the main header */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+        .ui.accordion .title {
+            background-color: #FFFFFF;
+            color: #0A2240;
+            border-top: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        .ui.accordion .active.title {
+            background-color: #F9F9F9;
+            color: #4ECDC4;
+        }
+        .ui.accordion .content {
+            background-color: #FFFFFF;
+            color: #2A4B8C;
+            border-top: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        .category-cards {
+            margin-top: 2em;
+        }
+        
+        /* Different shades for each category */
+        .card.shade-1 { border-color: #4ECDC4; }
+        .card.shade-2 { border-color: #45B7E5; }
+        .card.shade-3 { border-color: #2A4B8C; }
+        .card.shade-4 { border-color: #4ECDC4; }
+        .card.shade-5 { border-color: #45B7E5; }
+        
+        .card.shade-1:hover { border-color: #45B7E5; }
+        .card.shade-2:hover { border-color: #2A4B8C; }
+        .card.shade-3:hover { border-color: #4ECDC4; }
+        .card.shade-4:hover { border-color: #45B7E5; }
+        .card.shade-5:hover { border-color: #2A4B8C; }
+        
+        .card .header { color: #0A2240; }
+        .card .description { color: #2A4B8C; }
+
+        .ui.card .content i.icon {
+            color: #0A2240;
+        }
+
+        /* Remove glitter effect from all elements */
+        .glitter-effect::after {
+            content: none;  /* This removes the pseudo-element entirely */
+        }
+
+        .glitter-effect {
+            position: static;  /* Reset position if it was changed for the effect */
+            overflow: visible;  /* Reset overflow if it was hidden */
+        }
+
+        /* Remove any animations */
+        @keyframes glitter {
+            /* Empty keyframes to effectively remove the animation */
+        }
+
+        /* Remove glitter effect from specific elements if they had special rules */
+        h1.ui.header::after,
+        .ui.card::after,
+        .ui.accordion .title::after {
+            content: none;
+        }
+
+        /* Reset any background or animation properties */
+        h1.ui.header {
+        color: #FFFFFF;  /* White color for the main header */
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 1em;
+        }
+
+        .highlight {
+            background-color: #4ECDC4;
+            color: #0A2240;
+            font-weight: bold;
+        }
+
+        .custom-icons-container {
+            height: 50px; /* or whatever height you need */
+            /* other styles as needed */
+        }
+
+        .ui.modal .header {
+            background-color: #4ECDC4;
+            color: #0A2240;
+            padding: 1em;
+            border-bottom: 2px solid #2A4B8C;
+        }
+        .ui.modal .content {
+            padding: 2em;
+            background-color: #FFFFFF;
+            color: #0A2240;
+        }
+        .ui.modal .content h3 {
+            color: #4ECDC4;
+        }
+        .ui.modal .content p {
+            margin-bottom: 1em;
+        }
+        .ui.modal .content .ui.accordion .title {
+            background-color: #FFFFFF;
+            color: #0A2240;
+            border-top: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        .ui.modal .content .ui.accordion .active.title {
+            background-color: #F9F9F9;
+            color: #4ECDC4;
+        }
+        .ui.modal .content .ui.accordion .content {
+            background-color: #FFFFFF;
+            color: #2A4B8C;
+            border-top: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        .ui.modal .actions {
+            background-color: #F9F9F9;
+            padding: 1em;
+            border-top: 2px solid #2A4B8C;
+        }
+        .ui.modal .actions .button {
+            background-color: #4ECDC4;
+            color: #FFFFFF;
+        }
+        .ui.modal .actions .button:hover {
+            background-color: #45B7E5;
+        }
+
+        .ui.card .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .ui.card .content i.icon {
+            margin-bottom: 0.5em;
+        }
+
+        .ui.card .header {
+            margin-top: 0.5em;
+        }
+
+        /* Remove dropdown icon from accordion titles */
+        .ui.styled.accordion .title:not(.ui) {
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+        .ui.styled.accordion .title .dropdown.icon {
+            display: none;
+        }
+
+        .back-to-login {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            z-index: 1000;
+        }
+
+        .back-to-login .ui.button {
+            background-color: #0A2240;  /* Dark navy blue color */
+            color: #FFFFFF;  /* White text */
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em;
+            padding: 0.8em 1.5em;
+            border: none;
+            border-radius: 0.3em;  /* Slightly rounded corners */
+            text-transform: none;  /* Normal text case */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-login .ui.button:hover {
+            background-color: #0d2d54;  /* Slightly lighter blue for hover state */
+        }
+
+        .back-to-login .ui.button i.icon {
+            margin-right: 0.5em;  /* Space between icon and text */
+        }
+
+        /* Ensure the main content doesn't overlap with the button */
+        .main-content {
+            padding-top: 3em;
+        }
+
+        /* Adjust the container padding if needed */
+        .ui.container {
+            padding-top: 4em;
+            padding-bottom: 4em;
+        }
+
+        .category-cards {
+            margin-top: 2em;
+        }
+
+        .ui.five.cards {
+            margin-left: -0.5em;
+            margin-right: -0.5em;
+        }
+
+        .ui.five.cards > .card {
+            width: calc(20% - 1em);
+            margin: 0.5em;
+        }
+
+        /* Responsive adjustments */
+        @media only screen and (max-width: 1200px) {
+            .ui.five.cards > .card {
+                width: calc(25% - 1em);
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
+            .ui.five.cards > .card {
+                width: calc(33.33% - 1em);
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .ui.five.cards > .card {
+                width: calc(50% - 1em);
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .ui.five.cards > .card {
+                width: calc(100% - 1em);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ui container" style="padding-top: 4em; padding-bottom: 4em;">
+        <div class="back-to-login">
+            <a href="https://ygpayroll.com/signin/" class="ui button">
+                <i class="lock icon"></i>
+                Back to Signin Page
+            </a>
+        </div>
+        
+        <div class="main-content">
+            <h1 class="ui center aligned header" style="font-size: 2.5em; margin-bottom: 1em; color: #FFFFFF;">Frequently Asked Questions to YU/HR</h1>
+            
+            <div class="ui segment">
+                <div class="ui fluid icon input" style="margin-bottom: 1em;">
+                    <input type="text" id="faq-search" placeholder="Search FAQs...">
+                    <i class="search icon"></i>
+                </div>
+                <div class="ui active centered inline loader" id="search-loader" style="display: none;"></div>
+            </div>
+
+            <div class="ui centered grid">
+                <div class="sixteen wide column">
+                    <div class="ui segment">
+                        <div class="ui styled fluid accordion" id="faq-accordion">
+                            <div class="title">
+                                What is the company's policy on remote work?
+                            </div>
+                            <div class="content">
+                                <p>Work-From-Anywhere (WFX) - an arrangement that allows employees to perform their job
+                                    wherever resources and defined workspace specifications are available, giving them the
+                                    flexibility to work beyond their homes. To view the full details, go to your Kiosk > Inquire > Memo/Certificates/Agreement and look for the WFX Policy.</p>
+                            </div>
+                            
+                            <div class="title">
+                                What is our regular working schedule?
+                            </div>
+                            <div class="content">
+                                <p>Our regular schedule is Mondays-Saturdays, 8:30-5:30 PM.</p>
+                            </div>
+                            
+                            <div class="title">
+                                What benefits does the company offer?
+                            </div>
+                            <div class="content">
+                                <p>Other than the monetary benefits, we have career growth opportunities through trainings in the area of Communication, Leadership and Technical.</p>
+                            </div>
+                            
+                            <div class="title">
+                                How often are performance evaluation conducted?
+                            </div>
+                            <div class="content">
+                                <p>For new hire employees and under Performance Improvement Program, the evaluation is conducted on a weekly basis. For New hire, it's for the period of 6 months. And for under PIP, it depends on the agreed recommended period between the Manager and YU. By the way, PIP is for those regular employees who currently under close obaservation due to major areas that needs improvement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+                    <div class="category-cards">
+                        <div class="ui five stackable cards">
+                            <!-- Disciplinary Action card -->
+                            <div class="ui segment card glitter-effect shade-1" id="disciplinary-action-card">
+                                <div class="content">
+                                    <i class="huge gavel icon"></i>
+                                    <div class="header">Code of Conduct</div>
+                                    <div class="description">Policies and procedures for disciplinary actions.</div>
+                                </div>
+                            </div>
+
+                            <!-- Employee Training & Movement card -->
+                            <div class="ui segment card glitter-effect shade-2" id="employee-training-movement-card">
+                                <div class="content">
+                                    <i class="huge graduation cap icon"></i>
+                                    <div class="header">Memos & Policies</div>
+                                    <div class="description">Information about training programs and movement process.</div>
+                                </div>
+                            </div>
+
+                            <!-- Health and Wellness card -->
+                            <div class="ui segment card glitter-effect shade-3" id="health-wellness-card">
+                                <div class="content">
+                                    <i class="huge heartbeat icon"></i>
+                                    <div class="header">Health and Wellness</div>
+                                    <div class="description">Access health resources and consultation.</div>
+                                </div>
+                            </div>
+
+                            <!-- Hiring card -->
+                            <div class="ui segment card glitter-effect shade-4" id="hiring-card">
+                                <div class="content">
+                                    <i class="huge user plus icon"></i>
+                                    <div class="header">Hiring</div>
+                                    <div class="description">Get to know the open positions in the company for referral.</div>
+                                </div>
+                            </div>
+
+                            <!-- Kiosk card -->
+                            <div class="ui segment card glitter-effect shade-5" id="kiosk-card">
+                                <div class="content">
+                                    <i class="huge info circle icon"></i>
+                                    <div class="header">Kiosk</div>
+                                    <div class="description">Access your personal information and self-service options.</div>
+                                </div>
+                            </div>
+
+                            <!-- Loan Applications card -->
+                            <div class="ui segment card glitter-effect shade-1" id="loan-applications-card">
+                                <div class="content">
+                                    <i class="huge money bill alternate icon"></i>
+                                    <div class="header"> SSS/HDMF/PHIC and YAHSHUA Applications</div>
+                                    <div class="description">Apply for and manage your loan applications, leaves, and others.</div>
+                                </div>
+                            </div>
+
+                            <!-- New Hire card -->
+                            <div class="ui segment card glitter-effect shade-2" id="new-hire-card">
+                                <div class="content">
+                                    <i class="huge id badge icon"></i>
+                                    <div class="header">New Hire</div>
+                                    <div class="description">Information for new hires that will help you get started.</div>
+                                </div>
+                            </div>
+
+                            <!-- Schedules card -->
+                            <div class="ui segment card glitter-effect shade-3" id="schedules-card">
+                                <div class="content">
+                                    <i class="huge calendar alternate icon"></i>
+                                    <div class="header">Schedules</div>
+                                    <div class="description">View company-wide schedules and events.</div>
+                                </div>
+                            </div>
+
+                            <!-- Timekeeper card -->
+                            <div class="ui segment card glitter-effect shade-4" id="timekeeper-card">
+                                <div class="content">
+                                    <i class="huge clock icon"></i>
+                                    <div class="header">Timekeeper</div>
+                                    <div class="description">Track your work hours and let you HR know your concerns.</div>
+                                </div>
+                            </div>
+
+                            <!-- YP Admin Access card -->
+                            <div class="ui segment card glitter-effect shade-5" id="yp-admin-access-card">
+                                <div class="content">
+                                    <i class="huge key icon"></i>
+                                    <div class="header">YP Admin Access</div>
+                                    <div class="description">Information about YP administrative access.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="no-results" style="display: none; text-align: center; padding: 1em;">
+        No matching questions found.
+    </div>
+
+    <!-- Timekeeper Modal -->
+    <div class="ui modal" id="timekeeper-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Timekeeper and Logs
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Track Your Time and Manage Requests</h3>
+                <p>The Timekeeper system allows you to clock in/out, view work hours, submit time-off requests, and more.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        How can I request for log?
+                    </div>
+                    <div class="content">
+                        <p>Open your kiosk. Go to Apply "Time log Requests", then fill out the form if it's for a specific log or a whole day logs.</p>
+                    </div>
+
+                    <div class="title">
+                        I accidentally uninstalled the timekeeper app and I forgot my password to sign in. What should I do?
+                    </div>
+                    <div class="content">
+                        <p>Go to web kiosk and try signing in with the password you've set. If still cannot sign in, then proceed to reset your password by clicking the "Forgot Password" link. After you've reset your password, try to sign in again in the timekeeper app.</p>
+                    </div>
+
+                    <div class="title">
+                        I cannot proceed to time in/out due to an error that says contact administrator. What should I do?
+                    </div>
+                    <div class="content">
+                        <p>Try out first to download data and update device settings. If the error persists, try to uninstall and install the app again. Just make sure all your logs are synced before uninstalling the app.</p>
+                    </div>
+
+                    <div class="title">
+                        I cannot proceed to time in/out because of invalid location. What should I do?
+                    </div>
+                    <div class="content">
+                        <p>Please message ARSS and send the Location name and its coordinates - these are the numbers displayed in your mobile screen upon taking the selfie. Once HR has confirmed, kindly click on "update device settings" in the timekeeper app.</p>
+                    </div>
+
+                    <div class="title">
+                        I forgot to time in/out?
+                    </div>
+                    <div class="content">
+                        <p>Is this your first time?</p>
+                        <p>If yes, kindly email HR with the Subject "CODE_First TimeForgot to Time In/Out" with the content of what happened, how it happened and what's your action plans to avoid this from happening.</p>
+                        <p>If not your first time, that will be considered as "Incomplete/No logs, No Pay". Unless with very valid and compelling reason, you should send HR a documentation of it so you can proceed with the request log. This will be subject for Ma'am Juvy's approval, before your manager will accept the requested log.</p>
+                    </div>
+
+                    <div class="title">
+                       I cannot apply for Vacation/Sick Leave due to an error. What shoudl I do?
+                    </div>
+                    <div class="content">
+                        <p>Please try applying using the Web kiosk. If the error persist, contact HR.</p>
+                    </div>
+              </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kiosk Modal -->
+    <div class="ui modal" id="kiosk-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Kiosk
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Access Company Information and Self-Service Options</h3>
+                <p>The Kiosk system provides easy access to company information and various self-service options for employees.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        I cannot sign in to my kiosk account because I forgot my password. What should I do?
+                    </div>
+                    <div class="content">
+                        <p>You may try the "forgot password". If it did not work, please send an email to HR and CC Ma'am Juvy stating your request to reset password.</p>
+                    </div>
+
+                    <div class="title">
+                       My Account was locked due to multiple attempts of signing in and wrong credentials.
+                    </div>
+                    <div class="content">
+                        <p>Please send an email to HR and CC Ma'am Juvy stating your request to reset password.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loan Applications Modal -->
+    <div class="ui modal" id="loan-applications-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            SSS/HDMF/PHIC and YAHSHUA Applications
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Apply for and Manage Employee applications</h3>
+                <p>The Applications system allows you to apply for employee loans, leaves, and others and manage your existing loan accounts.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        I applied to SSS online for a Salary loan. What should I do to have it certified by YAHSHUA?
+                    </div>
+                    <div class="content">
+                        <p>Please send an email to HR and CC Ma'am Juvy stating that you have applied for SSS salary loan and it's subject for employer's certification.</p>
+                    </div>
+
+                    <div class="title">
+                        I already received my SSS Salary Loan. How can I have it deducted to my payroll?
+                    </div>
+                    <div class="content">
+                        <p>Please apply for a Cash Advance through your kiosk. Select the regular deduction and make sure you choose the "SSS Salary Loan" type. The total amount should be the monthly amortization multiplied by how many months your loan is for.</p>
+                    </div>
+
+                    <div class="title">
+                        I have requested for Cash advance for my SSS Salary loan. What should I do next?
+                    </div>
+                    <div class="content">
+                        <p>In the same email thread of your SSS salary loan, notify HR that you have submitted your Cash Advance request and it's subject for approval.</p>
+                    </div>
+
+                    <div class="title">
+                        I applied for HDMF loan online. What should I do next to have it deducted to my payroll?
+                    </div>
+                    <div class="content">
+                        <p>Please apply for a Cash Advance through your kiosk. Select the regular deduction and make sure you choose the "HDMF Loan" type. The total amount should be the monthly amortization multiplied by how many months your loan is for. Also the start date should be based on our cut off period and should be 1 month before the scheduled monthly amortization scheduled by Pag-ibig</p>
+                    </div>
+
+                    <div class="title">
+                        My loan application is requiring me for COE with compensation. What should I do?
+                    </div>
+                    <div class="content">
+                        <p>Please send an email to HR and CC Ms. A and Ma'am Juvy stating your request to process the COE with compensation for what purpose.</p>
+                    </div>
+
+                    <div class="title">
+                        My loan application is requiring me for COE without compensation. What should I do?
+                    </div>
+                    <div class="content">
+                        <p>Please send an email to HR and CC Ms. A and Ma'am Juvy stating your request to process the COE with compensation for what purpose.</p>
+                    </div>
+
+                    <div class="title">
+                        My loan application is requiring me for payslip with signature of authorized representative What should I do?
+                    </div>
+                    <div class="content">
+                        <p>Please send an email to HR and CC Ms. A and Ma'am Juvy stating your request for payslip with signature of authorized representative.</p>
+                    </div>
+                    
+                    <div class="title">
+                        I applied for loan in a bank and it's asking for HR's number for employment verification. What number should I give?
+                    </div>
+                    <div class="content">
+                        <p>You may give HR's number, 0917 314 3156. And please notify ARSS that you have applied for loan and it's subject for verification.</p>
+                    </div>
+                    
+                    <div class="title">
+                        Am I required to submit medical report during my Sick Leave?
+                    </div>
+                    <div class="content">
+                        <p>Yes. Please attach the medical certificate upon request for Sick Leave via kiosk or timekeeper app applications module.</p>
+                    </div>
+
+                    <div class="title">
+                        My SSS number is currently on temporary Status. What should I do to update it into permanent?
+                    </div>
+                    <div class="content">
+                        <p>You may click on this link for online guide https://youtu.be/sFx_-q8SEBM. If you cannot proceed, go to the nearest SSS office file your request.</p>
+                    </div>
+
+                    <div class="title">
+                        I applied for reloan in SSS/Pag-ibig. What should I do with my current deduction in payroll?
+                    </div>
+                    <div class="content">
+                        <p>Please send an email to HR for your loan to be certified. Once loan amount is received, proceed to booking your reloan amount details via Kiosk. If you forgot how to do it, just go to "I already received my SSS Salary Loan. How can I have it deducted to my payroll?" FAQ.</p>
+                    </div>
+
+                    <div class="title">
+                        I am required to submit MDR to PhilHealth office. Where can I access it?
+                    </div>
+                    <div class="content">
+                        <p>Just send an email to ofp@philhealth.gov.ph together with your complete name (last name, first name, middle name), your date of birth, and present address. You will then receive a notification with a copy of your official MDR.</p>
+                    </div>
+
+                    <div class="title">
+                        I will be taking maternity leave soon. What should I submit before taking the leave?
+                    </div>
+                    <div class="content">
+                        <p>Please send to HR the following documents at least 3 months before your due: Ultrasound report, Filled out SSS Maternity Leave Notification Form and copy of (1) valid ID.</p>
+                    </div>
+
+                    <div class="title">
+                        I just delivered my baby. What should I comply for the SSS Maternity Reimbursement?
+                    </div>
+                    <div class="content">
+                        <p>Please send to HR the Official Receipt or Acknowledgement receipt from PSA or the Local Civil Registrar along with your baby's birth certificate.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedules Modal -->
+    <div class="ui modal" id="schedules-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Schedules
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>View and Manage Work Schedules</h3>
+                <p>The Schedules system allows you to view your work schedule, request shift changes, and manage your availability.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        What is the Fitness facilitation schedule for 2025?
+                    </div>
+                    <div class="content">
+                        <p>
+                        JANUARY - TACS<br>
+                        FEBRUARY - SYSTECH A<br>
+                        MARCH - SYSTECH B<br>
+                        APRIL - PAYPRO<br>
+                        MAY - A'S<br>
+                        JUNE - SUPPORT<br>
+                        JULY - TACS<br>
+                        AUGUST - SYSTECH A<br>
+                        SEPTEMBER - SYSTECH B<br>
+                        OCTOBER - PAYPRO<br>
+                        NOVEMBER - A'S<br>
+                        DECEMBER - SUPPORT
+                        </p>
+                    </div>
+
+                    <div class="title">
+                        What is the Huddle visit schedule for 2025?
+                    </div>
+                    <div class="content">
+                        <p>
+                        JAN-FEB: TACS<br>
+                        MAR-APR: SYSTECH<br>
+                        MAY-JUN: PAYPRO<br>
+                        JUL-AUG: A'S<br>
+                        SEPT-OCT: TACS<br>
+                        NOV-DEC: SYSTECH
+                        </p>
+                    </div>
+
+                    <div class="title">
+                        Where can I access the Huddles slides?
+                    </div>
+                    <div class="content">
+                        <p>The Huddles slides are uploaded by YU Team every Friday and made available for all in a shared Google Drive folder</a>. Click <a href="https://drive.google.com/drive/folders/1XDUj0_JkYSboRHP3l5Hv1NhZUOKsTBIW?usp=drive_link" target="_blank">here</a> to access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Health and Wellness Modal -->
+    <div class="ui modal" id="health-wellness-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Health and Wellness
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Access Health Resources and Wellness Programs</h3>
+                <p>The Health and Wellness system provides access to various health resources, wellness programs, and benefits information.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        What's our regular fitness schedule?
+                    </div>
+                    <div class="content">
+                        <p>Regular fitness session is every Tuesday at 5-5:30 Pm and Friday at 4-4:30 PM.</p>
+                    </div>
+
+                    <div class="title">
+                        If ever I got sick, do I need to report to HR and provide a medical certificate?
+                    </div>
+                    <div class="content">
+                        <p>Yes! Aside from notifying your manager, you are also required to submit a Medical Certificate from your doctor to HR via email.</p>
+                    </div>
+
+                    <div class="title">
+                        What is the best way to start a fitness routine?
+                    </div>
+                    <div class="content">
+                        <p>Start with realistic and achievable goals. Incorporate a mix of cardiovascular exercises, strength training, and flexibility exercises. Begin with small steps, like 30 minutes of activity three times a week, and gradually increase the intensity and frequency.</p>
+                    </div>
+
+                    <div class="title">
+                        How often should I work out to see results?
+                    </div>
+                    <div class="content">
+                        <p>Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity per week, combined with strength training exercises at least twice a week for best results.</p>
+                    </div>
+
+                    <div class="title">
+                        What exercises should I focus on for overall fitness?
+                    </div>
+                    <div class="content">
+                        <p>A well-rounded fitness routine includes cardio exercises (like running, swimming, or cycling), strength training (using weights or bodyweight), and flexibility training (like stretching or yoga). It's important to balance all three for overall health.</p>
+                    </div>
+
+                    <div class="title">
+                        How long will it take to see progress?
+                    </div>
+                    <div class="content">
+                        <p>Results vary depending on your starting point, but most people begin to notice changes within 4-6 weeks with consistent effort. Visible changes may take a little longer, but improvement in strength, endurance, and energy can be felt early on.</p>
+                    </div>
+
+                    <div class="title">
+                        What should I eat to support my fitness goals?
+                    </div>
+                    <div class="content">
+                        <p>Focus on a balanced diet rich in lean proteins, whole grains, fruits, and vegetables. Protein helps build muscle, while healthy carbs provide energy. Stay hydrated and consider small, frequent meals to keep your energy levels steady.</p>
+                    </div>
+
+                    <div class="title">
+                        How can I stay motivated to keep working out?
+                    </div>
+                    <div class="content">
+                        <p>Set clear goals and track your progress. Find a workout buddy, join group classes, or participate in company fitness sessions for accountability. Celebrate small wins and switch up your routine to keep things interesting.</p>
+                    </div>
+
+                    <div class="title">
+                        Is strength training important for weight loss?
+                    </div>
+                    <div class="content">
+                        <p>Yes, strength training helps build muscle, which increases your resting metabolism, helping you burn more calories even when you're not exercising. Combining strength training with cardio is effective for weight loss and toning.</p>
+                    </div>
+
+                    <div class="title">
+                        Can I work out if I have a busy schedule?
+                    </div>
+                    <div class="content">
+                        <p>Yes, even short bursts of activity can make a difference. Try 15-20 minute high-intensity interval training (HIIT) workouts, or break your workout into smaller segments throughout the day. Consistency matters more than duration.</p>
+                    </div>
+
+                    <div class="title">
+                        How important is rest and recovery?
+                    </div>
+                    <div class="content">
+                        <p>Rest and recovery are crucial to prevent injury and allow your muscles to repair and grow. Ensure you get enough sleep and take rest days between intense workouts to avoid burnout.</p>
+                    </div>
+
+                    <div class="title">
+                        What's the role of stretching in fitness?
+                    </div>
+                    <div class="content">
+                        <p>Stretching improves flexibility, reduces the risk of injury, and helps your muscles recover faster. Incorporate stretching before and after workouts to enhance mobility and prevent soreness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Hire Modal -->
+    <div class="ui modal" id="new-hire-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            New Hire
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Welcome Home to YAHSHUA-ABBA!</h3>
+                <p>The New Hire system is designed to help you navigate your first days and weeks with our company, providing essential information and resources for a smooth onboarding experience.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        What are the company's policies on work hours?
+                    </div>
+                    <div class="content">
+                        <p>The standard working hours are Monday-Friday 8:30AM to 5:30 PM. You're expected to time in and out using The ABBA Timekeeper app.</p>
+                    </div>
+
+                    <div class="title">
+                        I forgot to time in or time out and this is my first time. What should I do?
+                    </div>
+                    <div class="content">
+                        <p>Send an email to HR detailing: (1) What happened, (2) Why it happened, and (3) What's your application plan to prevent it from happening moving forward. Send the email to HR and CC your manager and Ma'am Juvy.</p>
+                    </div>
+
+                    <div class="title">
+                        What is YAHSHUA's payroll releasing schedule?
+                    </div>
+                    <div class="content">
+                        <p>Our payroll is released every 15th and 30th/31st of the month. Our payroll cutoff is every 21st (of previous month) to 5th (of the current month) for the First Quincena, and every 6th to 20th (of the current month) for the Second Quincena.</p>
+                    </div>
+
+                    <div class="title">
+                        What happens during my probationary period?
+                    </div>
+                    <div class="content">
+                        <p>During the probationary period, you'll be evaluated based on your performance, punctuality, and overall fit with the company. Regular feedback will be provided by your manager and be facilitated by HR on a weekly basis.</p>
+                    </div>
+
+                    <div class="title">
+                        Can I change my work schedule?
+                    </div>
+                    <div class="content">
+                        <p>No. Unless mandated by the company.</p>
+                    </div>
+
+                    <div class="title">
+                        What's the dress code?
+                    </div>
+                    <div class="content">
+                        <p>Our company follows a business casual dress code. For formal meetings like Huddle every Monday, we dress our best corporate attire. And for Tuesdays to Saturdays, we go for business casual attire.</p>
+                    </div>
+
+                    <div class="title">
+                        How do I access the company's policies and procedures?
+                    </div>
+                    <div class="content">
+                        <p>All company policies and procedures are available in the employee kiosk. Just log in to ygpayroll.com using the credentials given to you by Ma'am Juvy.</p>
+                    </div>
+
+                    <div class="title">
+                        How do I report a workplace issue or concern?
+                    </div>
+                    <div class="content">
+                        <p>You can report any workplace issues to your direct supervisor or HR.</p>
+                    </div>
+
+                    <div class="title">
+                        What is the company's policy on overtime?
+                    </div>
+                    <div class="content">
+                        <p>Overtime is paid for hours worked beyond 5:30 PM. Make sure to get approval from your manager before working overtime.</p>
+                    </div>
+
+                    <div class="title">
+                        What should I do if I'm running late or can't come to work?
+                    </div>
+                    <div class="content">
+                        <p>Notify your manager as soon as possible if you're going to be late or need to miss work. Depending on the situation, your manager will guide you on the appropriate steps.</p>
+                    </div>
+
+                    <div class="title">
+                        What learning and development opportunities are available?
+                    </div>
+                    <div class="content">
+                        <p>We offer various training programs for leadership - Supervisory, Management and a lot more. If you are interested to be trained, let your manager know.</p>
+                    </div>
+
+                    <div class="title">
+                        How does the company handle sick leave?
+                    </div>
+                    <div class="content">
+                        <p>Since you under probationary for 6 months (unless you will be regularized early), you are not yet entitled for any leave credits. Leave credits are given to those who have rendered service for at least a year. But for taking leave due to pre-schedules activity or sickness, please let your manager know as soon as possible.</p>
+                    </div>
+
+                    <div class="title">
+                        Can I update my personal information?
+                    </div>
+                    <div class="content">
+                        <p>Yes, you can update personal information via "update profile" in your kiosk account. For any information not in the profile list in Kiosk, please email HR immediately.</p>
+                    </div>
+
+                    <div class="title">
+                        How does the company encourage work-life balance?
+                    </div>
+                    <div class="content">
+                        <p>We support work-life balance by offering remote work options, and wellness programs and spiritual training.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hiring Modal -->
+    <div class="ui modal" id="hiring-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Hiring
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Our Hiring Process</h3>
+                <p>Our hiring process is designed to find the best talent while ensuring a fair and inclusive experience for all candidates.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                       What are the open positions for hiring?
+                    </div>
+                    <div class="content">
+                        <p>Go to <a href="#" class="jobs-portal-link">YAHSHUA HRIS Jobs portal</a> to know the open positions for hiring and its corresponding requirements.</p>
+                    </div>
+
+                    <!-- Confirmation Modal for Jobs Portal -->
+                    <div class="ui tiny modal" id="jobs-portal-modal">
+                        <div class="header">
+                            Leaving the current page
+                        </div>
+                        <div class="content">
+                            <p>You are about to leave this page and go to the YAHSHUA HRIS Jobs portal. Do you want to proceed?</p>
+                        </div>
+                        <div class="actions">
+                            <div class="ui cancel button">Cancel</div>
+                            <div class="ui approve button">Proceed</div>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('.jobs-portal-link').click(function(e) {
+                                e.preventDefault();
+                                $('#jobs-portal-modal')
+                                    .modal({
+                                        onApprove: function() {
+                                            window.open('https://www.yahshuahris.com/jobs', '_blank');
+                                        }
+                                    })
+                                    .modal('show');
+                            });
+                        });
+                    </script>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What should I do if I want to refer someone for a position?
+                    </div>
+                    <div class="content">
+                        <p>Tell your referral to go to <a href="#" class="referral-jobs-link">YAHSHUA HRIS Jobs portal</a> and just look for the specific position and click "Apply now".</p>
+                    </div>
+
+                    <!-- Confirmation Modal for Referral Jobs Portal -->
+                    <div class="ui tiny modal" id="referral-jobs-modal">
+                        <div class="header">
+                            Leaving the current page
+                        </div>
+                        <div class="content">
+                            <p>You are about to leave this page and go to the YAHSHUA HRIS Jobs portal. Do you want to proceed?</p>
+                        </div>
+                        <div class="actions">
+                            <div class="ui cancel button">Cancel</div>
+                            <div class="ui approve button">Proceed</div>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('.referral-jobs-link').click(function(e) {
+                                e.preventDefault();
+                                $('#referral-jobs-modal')
+                                    .modal({
+                                        onApprove: function() {
+                                            window.open('https://www.yahshuahris.com/jobs', '_blank');
+                                        }
+                                    })
+                                    .modal('show');
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disciplinary Action Modal -->
+    <div class="ui modal" id="disciplinary-action-modal">
+        <i class="close icon"></i>
+        <div class="header">
+           Code of Conduct
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Disciplinary Action Policies and Procedures</h3>
+                <p>Our disciplinary action policies are designed to address workplace issues fairly and consistently, with the goal of improving performance and maintaining a positive work environment.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What's our process in giving disciplinary actions to YAHSHUAns?
+                    </div>
+                    <div class="content">
+                        <p>Our disciplinary actions typically (1) starts with the Incident report. Any action committed by a YAHSHUAn should be documented by the Manager through the Incident report and should be email to HR. (2) Once the IRF is received, HR will issue the Notice to Explain to the involved YAHSHUAn. (3) The YAHSHUAn will respond to the NTE within 5 days (holiday/restday included. (4) HR will call for a hearing with everybody involved: the apellant with his/her witness (if there's any), the manager and Ma'am Juvy. (5) After the hearing, the decision will be presented to the apellant and will be documented in the email.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What is our basis of disciplinary action?
+                    </div>
+                    <div class="content">
+                        <p>We base our disciplinary action on our Code of Discipline. You can view the Code of Discipline by <a href="#" class="code-of-discipline-link">clicking here</a>.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Can I see what NTE form looks like?
+                    </div>
+                    <div class="content">
+                        <p>You can view the NTE form <a href="https://docs.google.com/document/d/19vhZNVcWu32BjoZMuiQpmc789vTKsh2o/edit?" target="_blank">here</a>.</p>
+                    </div>
+
+                    <!-- Confirmation Modal for Code of Discipline -->
+                    <div class="ui tiny modal" id="code-of-discipline-modal">
+                        <div class="header">Confirm Action</div>
+                        <div class="content">
+                            <p>You are about to access the Code of Discipline. Do you want to proceed?</p>
+                        </div>
+                        <div class="actions">
+                            <div class="ui cancel button">Cancel</div>
+                            <div class="ui approve button">Proceed</div>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('.code-of-discipline-link').click(function(e) {
+                                e.preventDefault();
+                                $('#code-of-discipline-modal')
+                                    .modal({
+                                        onApprove: function() {
+                                            window.open('https://drive.google.com/file/d/1GVkveRTMlcdi0V3P7M0YQhiff44qDKzh/view?usp=sharing', '_blank');
+                                        }
+                                    })
+                                    .modal('show');
+                            });
+                        });
+                    </script>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Where can I access the Incident Report Form?
+                    </div>
+                    <div class="content">
+                        <p>Click <a href="#" class="incident-report-link">here</a> to access the Incident Report Form.</p>
+                    </div>
+
+                    <!-- Confirmation Modal -->
+                    <div class="ui tiny modal" id="incident-report-modal">
+                        <div class="header">Confirm Action</div>
+                        <div class="content">
+                            <p>You are about to access the Incident Report Form. Do you want to proceed?</p>
+                        </div>
+                        <div class="actions">
+                            <div class="ui cancel button">Cancel</div>
+                            <div class="ui approve button">Proceed</div>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('.incident-report-link').click(function(e) {
+                                e.preventDefault();
+                                $('#incident-report-modal')
+                                    .modal({
+                                        onApprove: function() {
+                                            window.open('https://drive.google.com/file/d/1jpzqgaFb97NLqbwBGCJUzZ1zrqyZJsAW/view?usp=sharing', '_blank');
+                                        }
+                                    })
+                                    .modal('show');
+                            });
+                        });
+                    </script>
+                  
+                  <div class="title">
+                    <i class="dropdown icon"></i>
+                   There's an incident happened within our team. I want to report it for disciplinary action. What should I do?
+                  </div>
+                <div class="content">
+                    <p>Notify HR by filing out the Incident Report Form. You can access the form <a href="#" class="incident-report-link">here</a> and send via email to HR.</p>
+                </div>
+  
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                   Who will attend during the hearing?
+                  </div>
+                <div class="content">
+                    <p>We have the HR Team, President, the Manager, the employee involved and his/her witness (if there's any).</p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                   How many days the NTE should be responded?
+                  </div>
+                <div class="content">
+                    <p>The employee is given 5 days to respond to the NTE.</p>
+                     
+                </div>
+            </div>
+        </div>
+        <div class="actions" style="text-align: right;">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- YP Admin Access Modal -->
+    <div class="ui modal" id="yp-admin-access-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            YP Admin Access
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>YP Administrative Access and Permissions</h3>
+                <p>YP Admin Access provides authorized personnel with elevated permissions to manage and oversee various aspects of our systems.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What is YP Admin Access?
+                    </div>
+                    <div class="content">
+                        <p>YP Admin Access is a set of elevated permissions granted to specific personnel to manage and oversee various administrative functions within our systems.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        How can I request YP Admin Access?
+                    </div>
+                    <div class="content">
+                        <p>To request YP Admin Access, submit a formal request through the IT Help Desk portal. Your request will be reviewed by the IT security team and your department head for approval.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What responsibilities come with YP Admin Access?
+                    </div>
+                    <div class="content">
+                        <p>With YP Admin Access comes increased responsibility. You must adhere to strict security protocols, maintain confidentiality, and use the access only for authorized purposes. Regular audits are conducted to ensure proper use.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        How often is YP Admin Access reviewed?
+                    </div>
+                    <div class="content">
+                        <p>YP Admin Access is reviewed quarterly to ensure that only personnel who require this level of access retain it. You may be asked to justify your continued need for admin access during these reviews.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employee Training & Movement Modal -->
+    <div class="ui modal" id="employee-training-movement-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Memos & Policies
+        </div>
+        <div class="content">
+            <div class="description">
+                <h3>Memos & Policies</h3>
+                <p>This section provides the clarifications with regard to the company's existing policies and procedure.</p>
+                
+                <h4>Frequently Asked Questions</h4>
+                <div class="ui styled accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What training programs are available to employees?
+                    </div>
+                    <div class="content">
+                        <p>We offer a range of training programs including onboarding for new hires, role-specific technical training, leadership development, soft skills workshops, and compliance training. Check the Learning Management System for a full list of available courses.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        How can I request additional training?
+                    </div>
+                    <div class="content">
+                        <p>If you're interested in additional training, discuss your development goals with your manager during your regular check-ins or performance reviews. You can also submit a training request through the HR portal.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What is the company's policy on internal transfers?
+                    </div>
+                    <div class="content">
+                        <p>We encourage internal mobility. Employees who have been in their current role for at least 12 months are eligible to apply for internal positions. All internal transfers require approval from both the current and receiving managers.</p>
+                    </div>
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        How does the company support career progression?
+                    </div>
+                    <div class="content">
+                        <p>We support career progression through regular performance reviews, individual development plans, mentorship programs, and opportunities for cross-functional projects. Speak with your manager or HR representative about your career goals and potential growth paths within the company.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                Got it
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var $accordion = $('.ui.accordion');
+            var $cards = $('.category-cards .card');
+            var $modals = $('.ui.modal');
+            
+            // Initialize the accordion
+            $accordion.accordion();
+
+            // Enhanced search functionality
+            $('#faq-search').on('keyup', function(e) {
+                var searchTerms = $(this).val().toLowerCase().trim().split(' ');
+                
+                // Show loading icon
+                $('#search-loader').show();
+                
+                // Simulate a delay (you can remove this in a real application)
+                setTimeout(function() {
+                    performSearch(searchTerms);
+                    
+                    // Hide loading icon
+                    $('#search-loader').hide();
+                }, 300); // 300ms delay for demonstration
+            });
+
+            function performSearch(searchTerms) {
+                var visibleItems = 0;
+                
+                if (searchTerms[0] === '') {
+                    // If search is empty, show all cards and reset modals
+                    $cards.show();
+                    $modals.each(function() {
+                        resetModal($(this));
+                    });
+                    $('#no-results').hide();
+                    return;
+                }
+                
+                $cards.hide();
+                $modals.each(function() {
+                    var $modal = $(this);
+                    var $questions = $modal.find('.ui.accordion .title');
+                    var $answers = $modal.find('.ui.accordion .content');
+                    var modalVisible = false;
+                    
+                    $questions.each(function(index) {
+                        var $question = $(this);
+                        var $answer = $answers.eq(index);
+                        var text = $question.text().toLowerCase() + ' ' + $answer.text().toLowerCase();
+                        
+                        var matchesAllTerms = searchTerms.every(function(term) {
+                            return text.indexOf(term) !== -1;
+                        });
+                        
+                        if (matchesAllTerms) {
+                            $question.show();
+                            $answer.show();
+                            highlightMatches($question, searchTerms);
+                            highlightMatches($answer, searchTerms);
+                            modalVisible = true;
+                            visibleItems++;
+                        } else {
+                            $question.hide();
+                            $answer.hide();
+                            removeHighlights($question);
+                            removeHighlights($answer);
+                        }
+                    });
+                    
+                    if (modalVisible) {
+                        $cards.filter('#' + $modal.attr('id').replace('-modal', '-card')).show();
+                    }
+                });
+                
+                if (visibleItems === 0) {
+                    $('#no-results').show();
+                } else {
+                    $('#no-results').hide();
+                }
+            }
+
+            function highlightMatches($element, terms) {
+                var html = $element.html();
+                terms.forEach(function(term) {
+                    var regex = new RegExp('(' + escapeRegExp(term) + ')', 'gi');
+                    html = html.replace(regex, '<span class="highlight">$1</span>');
+                });
+                $element.html(html);
+            }
+
+            function removeHighlights($element) {
+                $element.find('.highlight').contents().unwrap();
+            }
+
+            function resetModal($modal) {
+                $modal.find('.ui.accordion .title').show();
+                $modal.find('.ui.accordion .content').hide();
+                $modal.find('.ui.accordion .title, .ui.accordion .content').each(function() {
+                    removeHighlights($(this));
+                });
+            }
+
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            // Click handlers for each category card
+            $cards.click(function() {
+                var modalId = $(this).attr('id').replace('-card', '-modal');
+                showModal(modalId);
+            });
+
+            // Function to show modal and initialize accordion
+            function showModal(modalId) {
+                $('#' + modalId)
+                    .modal({
+                        onVisible: function() {
+                            $(this).find('.ui.accordion').accordion();
+                        }
+                    })
+                    .modal('show');
+            }
+
+            // Add this event handler to close modals when the "Got it" button is clicked
+            $('.ui.modal .actions .button').click(function() {
+                $(this).closest('.ui.modal').modal('hide');
+            });
+
+            // Initialize the hiring modal
+            $('#hiring-modal').modal({
+                closable: true,
+                onApprove: function() {
+                    // Handle 'Got it' button click
+                    return true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
